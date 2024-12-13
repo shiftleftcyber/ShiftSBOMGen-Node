@@ -55,7 +55,7 @@ scan-project:
 	export NPM_FLATTEN_COMPONENTS=false && \
 	export NPM_SHORT_PURLS=false && \
 	export NPM_OUTPUT_REPRODUCIBLE=false && \
-	export NPM_SPEC_VERSION=1.4 && \
+	export NPM_SPEC_VERSION=1.6 && \
 	export NPM_OUTPUT_FORMAT=json && \
 	$(GEN_SBOM)
 

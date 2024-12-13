@@ -48,10 +48,10 @@ definitions:
             - apt-get update
             - DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
             - apt-get install -y curl
-            - curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin v1.0.1
+            - curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin v1.18.0
             - docker load --input "${BITBUCKET_REPO_SLUG}.tar"
             - mkdir sbom_output
-            - syft "${BITBUCKET_REPO_SLUG}:local" --output cyclonedx-json@1.4 >> sbom_output/${BITBUCKET_REPO_SLUG}_cyclonedx-sbom.json
+            - syft "${BITBUCKET_REPO_SLUG}:local" --output cyclonedx-json@1.6 >> sbom_output/${BITBUCKET_REPO_SLUG}_cyclonedx-sbom.json
           artifacts:
             - sbom_output/*
 
