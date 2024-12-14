@@ -1,16 +1,15 @@
-FROM node:18-alpine3.20
+FROM node:22-alpine3.20
 
 ARG ARCH
 
-ENV BASH_VERSION="5.2.26-r0"
-
+# hadolint ignore=DL3018
 RUN apk update \
     && apk upgrade \
-    && apk --no-cache add bash=${BASH_VERSION}
+    && apk --no-cache add bash
 
 SHELL ["/bin/bash", "-c"]
 
-ENV CYCLONEDX_NPM_VERSION="1.19.0" \
+ENV CYCLONEDX_NPM_VERSION="1.19.3" \
     GEN_SBOM_SCRIPT_LOCATION="/opt"
 ENV PATH="${GEN_SBOM_SCRIPT_LOCATION}:${PATH}"
 
