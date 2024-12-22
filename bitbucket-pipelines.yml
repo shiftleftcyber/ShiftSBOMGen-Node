@@ -1,4 +1,9 @@
+clone:
+  debth: full
+
 definitions:
+  caches:
+    sonar: ~/.sonar/cache
   steps:
     - step: &build-docker-image
         name: 'Build Docker Image'
@@ -54,6 +59,14 @@ definitions:
             - syft "${BITBUCKET_REPO_SLUG}:local" --output cyclonedx-json@1.6 >> sbom_output/${BITBUCKET_REPO_SLUG}_cyclonedx-sbom.json
           artifacts:
             - sbom_output/*
+    - step: &sonarcloud
+          name: sonarcloud scan
+          size: 2x
+          image: sonarsource/sonar-scanner-cli:5
+          caches:
+            - sonar
+          script:
+            - sonar-scanner
 
 pipelines:
   pull-requests:
@@ -64,6 +77,7 @@ pipelines:
           - step: *docker-lint
           - step: *markdown-lint
           - step: *build-docker-image
+          - step: *sonarcloud
       - step: *gen-sbom-for-project
   branches:
     main:
@@ -73,6 +87,7 @@ pipelines:
           - step: *docker-lint
           - step: *markdown-lint
           - step: *build-docker-image
+          - step: *sonarcloud
       - step: *gen-sbom-for-project
   custom:
     push to Dockerhub (dev):
