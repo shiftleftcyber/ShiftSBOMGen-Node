@@ -1,7 +1,22 @@
-# Bitbucket Pipelines Pipe:  CycloneDX npm/node sBOM Generator
+# CycloneDX npm/node SBOM Generator
+
+[![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-highlight.svg)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=ccideas1_cyclonedx-npm-pipe&metric=bugs)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ccideas1_cyclonedx-npm-pipe&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=ccideas1_cyclonedx-npm-pipe&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
+
+
+![Build Badge](https://img.shields.io/bitbucket/pipelines/ccideas1/cyclonedx-npm-pipe/main)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/shiftleftcyber/cyclonedx-npm-pipe)
+
+
+
+
+
 
 A Bitbucket Pipe which generates a CycloneDX compliant Software Bill of Materials
-for a node/npm project.
+(SBOM) for a node/npm project.
 
 For obvious reason the official copy this project is hosted on [Bitbucket](https://bitbucket.org/ccideas1/cyclonedx-npm-pipe/src/main/).
 In order to reach a diverse audience a copy of the repo also exists in [GitHub](https://github.com/ccideas/cyclonedx-npm-pipe).
