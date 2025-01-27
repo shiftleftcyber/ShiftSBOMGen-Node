@@ -1,4 +1,4 @@
-# CycloneDX npm/node SBOM Generator
+# ShiftSBOM-Node
 
 [![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-highlight.svg)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
 
@@ -6,20 +6,15 @@
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ccideas1_cyclonedx-npm-pipe&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=ccideas1_cyclonedx-npm-pipe&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
 
-
 ![Build Badge](https://img.shields.io/bitbucket/pipelines/ccideas1/cyclonedx-npm-pipe/main)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/shiftleftcyber/cyclonedx-npm-pipe)
 
+ShiftSBOM-Node is a pure client-side Bitbucket Pipe that generates a CycloneDX-compliant Software Bill of Materials
+(SBOM) for Node.js/npm projects. No subscriptions, server access, or API keys are required.
 
-
-
-
-
-A Bitbucket Pipe which generates a CycloneDX compliant Software Bill of Materials
-(SBOM) for a node/npm project.
-
-For obvious reason the official copy this project is hosted on [Bitbucket](https://bitbucket.org/ccideas1/cyclonedx-npm-pipe/src/main/).
-In order to reach a diverse audience a copy of the repo also exists in [GitHub](https://github.com/ccideas/cyclonedx-npm-pipe).
+The official copy this project is hosted on [Bitbucket](https://bitbucket.org/ccideas1/cyclonedx-npm-pipe/src/main/).
+In order to reach a diverse audience a copy of the repo also exists in
+[GitHub](https://github.com/ccideas/cyclonedx-npm-pipe).
 It is recommended to submit Pull Requests to the Bitbucket copy, however submissions to either copy
 will be synced.
 
@@ -44,7 +39,7 @@ pipelines:
         caches:
           - node
         script:
-          - pipe: docker://ccideas/cyclonedx-npm-pipe:1.6.0
+          - pipe: docker://ccideas/cyclonedx-npm-pipe:1.7.0
             variables:
               IGNORE_NPM_ERRORS: 'true' # optional
               NPM_SHORT_PURLS: 'true' # optional
@@ -54,6 +49,7 @@ pipelines:
         artifacts:
           - build/*
 ```
+
 ## Variables
 
 | Variable                  | Usage                                                               | Options                         | Default       |
@@ -62,12 +58,12 @@ pipelines:
 | NPM_FLATTEN_COMPONENTS    | Used to specify if the components should be flattened               | true, false                     | false         |
 | NPM_SHORT_PURLS           | Used to specify if qualifiers from PackageURLs should be shortened  | true, false                     | false         |
 | NPM_OUTPUT_REPRODUCIBLE   | Used to specify if the output should be reproducible                | true, false                     | false         |
-| NPM_SPEC_VERSION          | Used to specify the version of the CycloneDX spec                   | 1.2, 1.3, 1.4, 1.5              | 1.4           |
+| NPM_SPEC_VERSION          | Used to specify the version of the CycloneDX spec                   | 1.2, 1.3, 1.4, 1.5, 1.6         | 1.6           |
 | NPM_MC_TYPE               | Used to specify the type of main component                          | application, firmware, library  | application   |
-| NPM_OMIT                  | Used to omit specific dependency types                              | dev, optional, peer             | none          | 
+| NPM_OMIT                  | Used to omit specific dependency types                              | dev, optional, peer             | none          |
 | NPM_OUTPUT_FORMAT         | Used to specify output format of the sBOM                           | json, xml                       | json          |
 | NPM_PACKAGE_LOCK_ONLY     | Used to use only the package-lock.json file to find dependencies    | true, false                     | false         |
-| OUTPUT_DIRECTORY          | Used to specify the directory to place all output im                | <directory name>                | sbom_output   |
+| OUTPUT_DIRECTORY          | Used to specify the directory to place all output im                | directory name                  | sbom_output   |
 
 ## Details
 
@@ -82,10 +78,10 @@ in one step then archive them, so they can be read by the pipe. See the example 
 
 ## Example
 
-A working pipeline for the popular [auditjs](https://www.npmjs.com/package/auditjs) 
+A working pipeline for the popular [auditjs](https://www.npmjs.com/package/auditjs)
 tool has been created as an example. The pipeline in
 this fork of the [auditjs](https://www.npmjs.com/package/auditjs) tool will install the required
-dependencies then generate a CycloneDX sBOM containing all the ingredients which make up the 
+dependencies then generate a CycloneDX sBOM containing all the ingredients which make up the
 product.
 
 * [Repository Link](https://bitbucket.org/ccideas1/fork-auditjs/src/main/)
@@ -94,7 +90,8 @@ product.
 
 ## Support
 
-If you'd like help with this pipe, or you have an issue, or a feature request, [let us know](https://github.com/ccideas/cyclonedx-npm-pipe/issues).
+If you'd like help with this pipe, or you have an issue, or a feature request,
+[let us know](https://github.com/ccideas/cyclonedx-npm-pipe/issues).
 
 If you are reporting an issue, please include:
 
