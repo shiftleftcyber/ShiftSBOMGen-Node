@@ -1,10 +1,6 @@
 # ShiftSBOM-Node
 
 [![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-highlight.svg)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
-=======
-# CycloneDX npm/node SBOM Generator
-
-[![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-highlight.svg)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=ccideas1_cyclonedx-npm-pipe&metric=bugs)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ccideas1_cyclonedx-npm-pipe&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
