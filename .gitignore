@@ -169,6 +169,7 @@ output/
 package.json
 package-lock.json
 node_modules/
+node-compile-cache/
 
 # tests
 sbom_output/
