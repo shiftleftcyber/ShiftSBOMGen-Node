@@ -39,12 +39,13 @@ pipelines:
         caches:
           - node
         script:
-          - pipe: docker://ccideas/cyclonedx-npm-pipe:1.7.0
+          - pipe: docker://ccideas/cyclonedx-npm-pipe:2.0.0
             variables:
               IGNORE_NPM_ERRORS: 'true' # optional
               NPM_SHORT_PURLS: 'true' # optional
               NPM_OUTPUT_FORMAT: 'json' # optional
               NPM_PACKAGE_LOCK_ONLY: 'false' # optional
+              NPM_SPEC_VERSION: '1.6' # optional
               OUTPUT_DIRECTORY: 'build' # optional # this dir should be archived by the pipeline
         artifacts:
           - build/*
