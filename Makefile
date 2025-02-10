@@ -9,14 +9,14 @@ test:
 	$(DOCKER) run --rm -it \
 		-v $(PWD):/build \
 		--workdir /build \
-		bats/bats:1.9.0 test/**.bats --timing --show-output-of-passing-tests --verbose-run
+		bats/bats:1.11.0 test/**.bats --timing --show-output-of-passing-tests --verbose-run
 
 .PHONY: shellcheck
 shellcheck:
 	$(DOCKER) run --rm -it \
 		-v $(PWD):/build \
 		--workdir /build \
-		koalaman/shellcheck-alpine:v0.9.0 shellcheck -x ./*.sh ./**/*.bats
+		koalaman/shellcheck-alpine:v0.10.0 shellcheck -x ./*.sh ./**/*.bats
 
 .PHONY: clean
 clean:

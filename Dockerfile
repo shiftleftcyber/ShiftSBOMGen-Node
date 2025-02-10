@@ -5,7 +5,7 @@ ARG ARCH
 # hadolint ignore=DL3018
 RUN apk update \
     && apk upgrade \
-    && apk --no-cache add bash
+    && apk --no-cache add bash jq
 
 SHELL ["/bin/bash", "-c"]
 
