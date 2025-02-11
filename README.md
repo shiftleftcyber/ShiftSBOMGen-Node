@@ -6,7 +6,6 @@
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ccideas1_cyclonedx-npm-pipe&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=ccideas1_cyclonedx-npm-pipe&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
 
-
 ![Build Badge](https://img.shields.io/bitbucket/pipelines/ccideas1/cyclonedx-npm-pipe/main)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/shiftleftcyber/cyclonedx-npm-pipe)
 
@@ -47,8 +46,7 @@ pipelines:
         caches:
           - node
         script:
-
-          - pipe: docker://ccideas/cyclonedx-npm-pipe:2.0.0
+          - pipe: docker://ccideas/cyclonedx-npm-pipe:3.0.0
             variables:
               IGNORE_NPM_ERRORS: 'true' # optional
               NPM_SHORT_PURLS: 'true' # optional
@@ -73,7 +71,7 @@ pipelines:
 | NPM_OMIT                  | Used to omit specific dependency types                              | dev, optional, peer             | none          |
 | NPM_OUTPUT_FORMAT         | Used to specify output format of the sBOM                           | json, xml                       | json          |
 | NPM_PACKAGE_LOCK_ONLY     | Used to use only the package-lock.json file to find dependencies    | true, false                     | false         |
-| OUTPUT_DIRECTORY          | Used to specify the directory to place all output in                | directory name                  | sbom_output   |
+| OUTPUT_DIRECTORY          | Used to specify the directory to place all output im                | directory name                  | sbom_output   |
 
 ## Details
 

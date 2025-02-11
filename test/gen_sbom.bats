@@ -22,6 +22,10 @@ generate_cyclonedx_sbom_for_npm_project() {
   echo "mock of generate_cyclonedx_sbom_for_npm_project()"
 }
 
+get_version() {
+  export PACKAGE_VERSION=0.0.0
+}
+
 #--------------------------------------------------------------------------------
 #---------------------------------------Tests------------------------------------
 #--------------------------------------------------------------------------------
@@ -80,7 +84,7 @@ generate_cyclonedx_sbom_for_npm_project() {
   unset OUTPUT_DIRECTORY
   run set_sbom_filename
 
-  [ "${lines[2]}" = "sBOM will be written to sbom_output/sbom.json" ]
+  [ "${lines[3]}" = "sBOM will be written to sbom_output/sbom-0.0.0.cdx.json" ]
   [ "$status" -eq 0 ]
 }
 
@@ -91,7 +95,7 @@ generate_cyclonedx_sbom_for_npm_project() {
 
   run set_sbom_filename
 
-  [ "${lines[2]}" = "sBOM will be written to sbom_output/${BITBUCKET_REPO_SLUG}.json" ]
+  [ "${lines[3]}" = "sBOM will be written to sbom_output/${BITBUCKET_REPO_SLUG}-0.0.0.cdx.json" ]
   [ "$status" -eq 0 ]
 }
 
@@ -102,7 +106,7 @@ generate_cyclonedx_sbom_for_npm_project() {
 
   run set_sbom_filename
 
-  [ "${lines[2]}" = "sBOM will be written to sbom_output/${SBOM_FILENAME}.json" ]
+  [ "${lines[3]}" = "sBOM will be written to sbom_output/${SBOM_FILENAME}.json" ]
   [ "$status" -eq 0 ]
 }
 
@@ -112,7 +116,7 @@ generate_cyclonedx_sbom_for_npm_project() {
 
   run set_sbom_filename
 
-  [ "${lines[2]}" = "sBOM will be written to sbom_output/${BITBUCKET_REPO_SLUG}.xml" ]
+  [ "${lines[3]}" = "sBOM will be written to sbom_output/${BITBUCKET_REPO_SLUG}-0.0.0.cdx.xml" ]
   [ "$status" -eq 0 ]
 }
 
@@ -123,7 +127,7 @@ generate_cyclonedx_sbom_for_npm_project() {
 
   run set_sbom_filename
 
-  [ "${lines[2]}" = "sBOM will be written to build/${BITBUCKET_REPO_SLUG}.xml" ]
+  [ "${lines[3]}" = "sBOM will be written to build/${BITBUCKET_REPO_SLUG}-0.0.0.cdx.xml" ]
   [ "$status" -eq 0 ]
 }
 

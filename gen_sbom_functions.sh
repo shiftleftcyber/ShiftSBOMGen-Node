@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+# shellcheck disable=SC2002
+# SC2002 (style): the cat command is used inside of jq
+
 set -e
 
 # Statics
@@ -25,13 +29,14 @@ check_output_directory() {
 
 set_sbom_filename() {
   check_output_directory
+  get_package_version
 
   if [ -n "${SBOM_FILENAME}" ]; then
     OUTPUT_FILENAME="${OUTPUT_DIR}/${SBOM_FILENAME}"
   elif [ -n "${BITBUCKET_REPO_SLUG}" ]; then
-    OUTPUT_FILENAME="${OUTPUT_DIR}/${BITBUCKET_REPO_SLUG}"
+    OUTPUT_FILENAME="${OUTPUT_DIR}/${BITBUCKET_REPO_SLUG}-${PACKAGE_VERSION}.cdx"
   else
-    OUTPUT_FILENAME="${OUTPUT_DIR}/sbom"
+    OUTPUT_FILENAME="${OUTPUT_DIR}/sbom-${PACKAGE_VERSION}.cdx"
   fi
 
   # set the file extension
@@ -44,6 +49,19 @@ set_sbom_filename() {
   echo "sBOM will be written to ${OUTPUT_FILENAME}"
   SWITCHES+=("--output-file" "${OUTPUT_FILENAME}")
 }
+
+get_package_version() {
+  get_version
+  echo "package verison is is set to: ${PACKAGE_VERSION}"
+  if [ "${PACKAGE_VERSION}" == "null" ]; then
+    echo "WARNING: version field is not set in package.json"
+    PACKAGE_VERSION=0.0.0
+  fi
+}
+
+get_version() (
+  PACKAGE_VERSION=$(cat package.json | jq --raw-output .version)
+)
 
 help() {
   echo "Generates a CycloneDX sBOM file for the given project"
