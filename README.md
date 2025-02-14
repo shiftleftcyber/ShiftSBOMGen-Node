@@ -39,7 +39,7 @@ pipelines:
         caches:
           - node
         script:
-          - pipe: docker://ccideas/cyclonedx-npm-pipe:3.0.0
+          - pipe: docker://ccideas/cyclonedx-npm-pipe:3.0.1
             variables:
               IGNORE_NPM_ERRORS: 'true' # optional
               NPM_SHORT_PURLS: 'true' # optional
