@@ -59,9 +59,9 @@ get_package_version() {
   fi
 }
 
-get_version() (
+get_version() {
   PACKAGE_VERSION=$(cat package.json | jq --raw-output .version)
-)
+}
 
 help() {
   echo "Generates a CycloneDX sBOM file for the given project"

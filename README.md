@@ -9,13 +9,6 @@
 ![Build Badge](https://img.shields.io/bitbucket/pipelines/ccideas1/cyclonedx-npm-pipe/main)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/shiftleftcyber/cyclonedx-npm-pipe)
 
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=ccideas1_cyclonedx-npm-pipe&metric=bugs)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ccideas1_cyclonedx-npm-pipe&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=ccideas1_cyclonedx-npm-pipe&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=ccideas1_cyclonedx-npm-pipe)
-
-![Build Badge](https://img.shields.io/bitbucket/pipelines/ccideas1/cyclonedx-npm-pipe/main)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/shiftleftcyber/cyclonedx-npm-pipe)
-
 ShiftSBOM-Node is a pure client-side Bitbucket Pipe that generates a CycloneDX-compliant Software Bill of Materials
 (SBOM) for Node.js/npm projects. No subscriptions, server access, or API keys are required.
 
@@ -46,7 +39,7 @@ pipelines:
         caches:
           - node
         script:
-          - pipe: docker://ccideas/cyclonedx-npm-pipe:3.0.0
+          - pipe: docker://ccideas/cyclonedx-npm-pipe:3.0.1
             variables:
               IGNORE_NPM_ERRORS: 'true' # optional
               NPM_SHORT_PURLS: 'true' # optional
